@@ -1,35 +1,42 @@
-import Image from "next/image";
+import { Container } from "@/components/landing/container";
 
 const links = [
-  { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
-  { href: "#cases", label: "Cases" },
+  { href: "#process", label: "Process" },
+  { href: "#case-study", label: "Work" },
   { href: "#contact", label: "Contact" },
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-zinc-800 bg-[var(--ink)] text-zinc-300">
-      <div className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-10 sm:px-8 lg:grid-cols-3 lg:items-end">
+    <footer className="border-t soft-divider py-8">
+      <Container className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto_auto] lg:items-end">
         <div>
-          <Image src="/kairos-logo.svg" alt="Kairos" width={155} height={32} className="h-auto w-[145px] invert" />
-          <p className="mt-3 text-sm text-zinc-400">AI systems and operational automation for execution-focused teams.</p>
+          <div className="inline-flex items-center gap-3">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(53,231,255,0.3)] bg-[rgba(53,231,255,0.08)] text-sm font-bold text-[var(--accent)]">
+              K
+            </span>
+            <span className="font-display text-xl font-semibold text-white">Kairos</span>
+          </div>
+          <p className="mt-4 max-w-md text-sm leading-7 text-[var(--muted)]">
+            Digital & software partner for businesses building platforms, systems, and digital products.
+          </p>
         </div>
 
-        <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2 text-sm lg:justify-center">
+        <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--muted)]">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className="text-zinc-400 transition hover:text-white">
+            <a key={link.href} href={link.href} className="transition hover:text-white">
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="space-y-1 text-sm text-zinc-400 lg:text-right">
+        <div className="space-y-1 text-sm text-[var(--muted)] lg:text-right">
           <p>hello@kairos.agency</p>
-          <p>Telegram: @kairosagency</p>
+          <p>Telegram / LinkedIn</p>
           <p>© {new Date().getFullYear()} Kairos. All rights reserved.</p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

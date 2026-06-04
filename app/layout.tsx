@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600"],
-});
-
 export const metadata: Metadata = {
-  title: "Kairos | AI Systems & Operational Design",
+  metadataBase: new URL("https://wuzimoo.github.io"),
+  title: "Kairos — Digital & Software Partner",
   description:
-    "Kairos designs AI-enabled systems and operations architecture for founders and operators who need practical implementation.",
+    "Kairos helps businesses build, launch, and improve digital products, platforms, software systems, analytics, automation, and AI-enabled workflows.",
+  openGraph: {
+    title: "Kairos — Digital & Software Partner",
+    description:
+      "Kairos helps businesses build, launch, and improve digital products, platforms, software systems, analytics, automation, and AI-enabled workflows.",
+    type: "website",
+    url: "https://wuzimoo.github.io/kairos-digital-partner/",
+  },
 };
 
 export default function RootLayout({
@@ -25,8 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${cormorant.variable} h-full antialiased`}>
-      <body className="min-h-full">{children}</body>
+    <html lang="en" className="h-full scroll-smooth">
+      <body className="min-h-full bg-[var(--background)] font-sans text-[var(--foreground)] antialiased">
+        {children}
+      </body>
     </html>
   );
 }
